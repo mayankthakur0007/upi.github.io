@@ -1,31 +1,60 @@
 ///delete row
-function load() {
+load = () => {
     var index,
-    table = document.getElementById('table');
+        table = document.getElementById('table');
     for (var i = 1; i < table.rows.length; i++) {
         table.rows[i].cells[3].onclick = function () {
-            var confirm = confirm("do you want to delete this row");
-            if (confirm === true) {
-                // index = this.parentElement.rowIndex;
+
+            index = this.parentElement.rowIndex;
 
 
-                var name = table.rows[index].cells[0].innerText;
-                console.log(name);
-                //    sessionStorage.setItem("selectedName",name);
-                deleteRow(name);
-            }
+            var name = table.rows[index].cells[0].innerText;
+            console.log(name);
+
+            deleteRow(name);
+
+
+            // location.reload();
+
 
 
         };
 
-       
+
+
+        table.rows[i].cells[4].onclick = function () {
+
+            index = this.parentElement.rowIndex;
+
+
+            var name = table.rows[index].cells[0].innerText;
+            var acc = table.rows[index].cells[1].innerText;
+            var IFSC = table.rows[index].cells[2].innerText;
+            document.getElementById('heading').innerText = "Change Beneficiary Details";
+
+            document.getElementById('save').style.display = "block";
+            document.getElementById('submit').style.display = "none";
+            document.getElementById('name').value = name;
+            document.getElementById('accNumber').value = acc;
+            document.getElementById('IFSC').value = IFSC;
+
+
+
+            // location.reload();
+
+
+
+        };
+
+
+
 
 
     }
 
 }
 ///adding beneficiary
-function add() {
+add = () => {
 
 
     var name = document.getElementById('name').value;
@@ -46,7 +75,7 @@ function add() {
 
 }
 ///avoid character
-function avoidChar(event) {
+avoidChar = (event) => {
     var k = event ? event.which : window.event.keyCode;
     if (!(k >= 48 && k <= 57)) {
         return false;
@@ -77,16 +106,21 @@ xhttp.onreadystatechange = function () {
                 td2.innerHTML = users[i].accountNumber;
                 var td3 = document.createElement("td");
                 td3.innerHTML = users[i].IFSC;
-               
+
 
                 var td4 = document.createElement("td");
                 td4.innerText = "Delete";
+                var td5 = document.createElement("td");
+                td5.innerText = "Edit";
                 row.appendChild(td1);
                 row.appendChild(td2);
                 row.appendChild(td3);
                 row.appendChild(td4);
-                
+                row.appendChild(td5);
 
+                var editRow = { "name": td1.innerText, "acc": td2.innerText };
+                editRow = JSON.stringify(editRow)
+                sessionStorage.setItem("row", editRow);
 
                 tBody.appendChild(row);
 
@@ -108,7 +142,7 @@ xhttp.send();
 
 
 ///delete row
-function deleteRow(v) {
+deleteRow = (v) => {
 
     var name = v;
 
@@ -136,7 +170,52 @@ function deleteRow(v) {
     };
     xhttp.open("GET", "http://localhost:3000/beneficiary", false);
     xhttp.send();
-    location.reload;
+    location.reload();
+
+
+}
+
+edit = (event) => {
+    event.preventDefault();
+    var data = JSON.parse(sessionStorage.getItem("row"));
+
+    var currentUser = sessionStorage.getItem("byAccount")
+    name = document.getElementById('name').value;
+    acc = document.getElementById('accNumber').value;
+    IFSC = document.getElementById('IFSC').value;
+
+    var beneficiary = { "bName": name, "accountNumber": acc, "IFSC": IFSC, "addedBy": currentUser };
+
+    beneficiary = JSON.stringify(beneficiary);
+    
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var users = this.responseText;
+            users = JSON.parse(users);
+            for (var i = 0; i < users.length; i++) {
+                
+                if (users[i].bName == data.name && users[i].accountNumber == data.acc && users[i].addedBy == currentUser) {
+
+
+
+
+
+                    let xhttp = new XMLHttpRequest();
+                    xhttp.open("PUT", `http://localhost:3000/beneficiary/${users[i].id}`, true);
+                    xhttp.setRequestHeader("Content-type", "application/json");
+                    xhttp.send(beneficiary);
+
+                }
+            }
+
+
+        }
+    };
+    xhttp.open("GET", "http://localhost:3000/beneficiary", true);
+    xhttp.send();
+
+
 
 
 }
