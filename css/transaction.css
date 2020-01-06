@@ -1,0 +1,130 @@
+#container{
+    display: grid;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    grid-template-rows: 280px 40px 600px 200px;
+    grid-template-areas: "head"
+                          "nav"
+                          "content"
+                          "footer";
+
+}
+#head{
+    grid-area: head;
+  
+}
+
+#nav{
+    grid-area: nav;
+
+    background-color: rgb(0, 0, 0);
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+}
+
+#content{
+    grid-area: content;
+
+    padding: 40px;
+  
+}
+
+#footer{
+    grid-area: footer;
+
+}
+#home{
+  background-color: black;
+  color:white;
+  padding: 10px 20px 20px 15px;
+  height: 10px;
+  width: 40px;
+ border-radius: 9px;
+ position: relative;
+left: 1000px;
+ top: -60px;
+ 
+}
+#logoutButton{
+  background-color: black;
+  color:white;
+  padding: 8px 20px 20px 15px;
+  height: 10px;
+  width: 40px;
+ border-radius: 9px;
+ position: relative;
+left: 1100px;
+top: -99px;
+ 
+ }
+   a{
+       text-decoration: none;
+       color: white;
+   }
+   #ben,#trans,#sendFund{
+     padding: 10px;
+   }
+  
+
+input{
+    margin: 0px 5px 2px 0px;
+    height: 30px;
+     width: 350px;
+     background-color: rgb(255, 255, 255);
+     opacity: 0.6;
+     color: rgb(0, 0, 0);
+     border: 1px solid rgb(55, 55, 253);
+     padding: 4px;
+     border-radius: 10px;
+}
+
+form{
+    border: 2px solid black;
+    padding: 40px;
+    border-radius: 15px;
+}
+button{
+
+       
+   position: relative;
+   left:180px;
+   top:40px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    padding: 16px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+
+  
+ 
+} 
+
+body{
+    background-image: url("../images/backk.jpg");
+    background-size: cover;
+    background-repeat: repeat-y;
+}
+button:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+  }
+  table, td, th {  
+    border: 1px solid rgb(0, 0, 0);
+    text-align: left;
+    border-style: dashed;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 15px;
+  }
+  

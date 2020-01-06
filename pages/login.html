@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+
+<head>
+    <title>
+        Login User
+    </title>
+    <link rel='stylesheet' href='../css/login.css'>
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+    
+    <script type='text/javascript' src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
+</head>
+
+<body>
+    
+    <div class='form_container'>
+        <form id='my_captcha_form' onsubmit="return check1()" method="GET">
+            <h4>UserID:</h4>
+        <input type='text' name='customerID' onblur="check()" id='id'><br>
+    
+    <h4>Password.:</h4>
+        <input type='password' required  name='password' id='password' ><BR>
+
+          <div class='g-recaptcha' 
+      data-sitekey='6LfrFKQUAAAAAMzFobDZ7ZWy982lDxeps8cd1I2i' 
+      ></div>
+          <p>
+          <button type='submit' required value="Submit" id="button1" >Submit</button>
+          </p>
+        </form>
+      </div>
+    <div id='backBlur'>
+
+    </div>
+    <div id="register" style="color: white;"><a href="register.html">Not a user? Register</a></div>
+<script src='../js/login.js'></script>
+</body>
+
+</html>

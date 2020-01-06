@@ -1,0 +1,84 @@
+#container{
+    display: grid;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    grid-template-rows: 280px 40px 600px 200px;
+    grid-template-areas: "head"
+                          "nav"
+                          "content"
+                          "footer";
+   
+}
+#head{
+    grid-area: head;
+    
+}
+
+#nav{
+    grid-area: nav;
+   
+    background-color: rgb(0, 0, 0);
+   display: flex;
+   flex-direction: row;
+   border-radius: 10px;
+   justify-content: space-around;
+}
+
+#content{
+    grid-area: content;
+   
+    padding: 40px;
+    /* color: white; */
+}
+
+#footer{
+    grid-area: footer;
+
+}
+body{
+    background-image: url("../images/backk.jpg");
+    background-size: cover;
+    background-repeat: repeat-y;
+}
+#home{
+    background-color: black;
+    color:white;
+    padding: 10px 20px 20px 15px;
+    height: 10px;
+    width: 40px;
+   border-radius: 9px;
+   position: relative;
+  left: 1000px;
+   top: -60px;
+   
+  }
+  #logoutButton{
+    background-color: black;
+    color:white;
+    padding: 8px 20px 20px 15px;
+    height: 10px;
+    width: 40px;
+   border-radius: 9px;
+   position: relative;
+  left: 1100px;
+  top: -99px;
+   
+   }
+   a{
+       text-decoration: none;
+       color: white;
+   }
+   #ben,#trans,#sendFund{
+     padding: 10px;
+   }
+  
+#send{
+    padding: 20px;
+    background-color: black;
+    border-radius: 20px;
+    color: white;
+}
+#payAmount{
+    height: 20px;
+    padding: 5px;
+    border-radius: 20px;
+}

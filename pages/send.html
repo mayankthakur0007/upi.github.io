@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Send Fund
+    </title>
+    <link rel="stylesheet" href="../css/send.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="head">
+            <img src="../images/logo.png" height="70px" width="200px">
+            <div>
+                <div id="home"><a href="home.html">HOME</a></div>
+                <div id="logoutButton"><a href="login.html">Logout</a></div>
+            </div>
+
+        </div>
+        <div id="nav">
+            <div id="ben">
+                <a href="beneficiary.html">Beneficiary Details</a>
+            </div>
+            <div id="sendFund">
+                <a href="send.html">Send Fund</a>
+            </div>
+            <div id="trans">
+                <a href="transaction.html">Transaction History</a>
+            </div>
+        </div>
+        <div id="content">
+            <h4>Choose Beneficiary:</h4>
+          <form id="form2"> <select id="locality-dropdown" onchange="_handleOnChange()"> 
+           </select>
+           <h2>Name</h2><span id="name"></span>
+           <h2>Account Number</h2><span id="accountNumber"></span>
+           <h2>IFSC</h2><span id="IFSC"></span>
+           <h2>Amount</h2>
+           <input type="number" id="payAmount"><br><br>
+           <button type="submit" onclick="return moneySend()" id="send" >Send Money</button>
+        </form>
+        </div>
+
+        <div id="footer">
+           
+        </div>
+    </div>
+    <script src="../js/send.js"></script>
+</body>
+
+</html>

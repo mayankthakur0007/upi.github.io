@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Send Fund
+    </title>
+    <link rel="stylesheet" href="../css/beneficiary.css">
+   
+</head>
+
+<body onload="load()" >
+    <div id="container">
+        
+        <div id="head">
+            <img src="../images/logo.png" height="70px" width="200px">
+            <div>
+            <div id="home"><a href="home.html">HOME</a></div>
+            <div id="logoutButton"><a href="login.html">Logout</a></div>
+        </div>
+        </div>
+        <div id="nav">
+            <div id="ben">
+                <a href="beneficiary.html">Beneficiary Details</a>
+            </div>
+            <div id="sendFund">
+                <a href="send.html">Send Fund</a>
+            </div>
+            <div id="trans">
+                <a href="transaction.html">Transaction History</a>
+            </div>
+        </div>
+        <div id="content">
+         
+            <div >
+                <h2>Your Beneficiaries</h2>
+                <table id="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Customer ID</th>
+                            <th>IFSC</th>
+                        
+                            
+                        </tr>
+                    </thead>
+                    <tbody id="tBody">
+                        
+             
+                    </tbody>
+                </table>
+            </div>
+            <div id="add">
+                <h2>Add Beneficiary</h2>
+                <form id="form">
+                    <h3>User Name:</h3>
+                    <input type ="text" required id="name"><br>
+                    <h3>Account Number:</h3>
+                   <input type ="text" onkeypress="return avoidChar(event)" maxlength='12' required id="accNumber"><br>
+                   <h3>IFSC:</h3>
+                   <input type ="text" required id="IFSC" maxlength="6"><br>
+                   <button type="submit" onclick="return add()" id="submit">Add</button>
+                   
+                </form>
+
+            </div>
+
+        </div>
+
+        <div id="footer">
+          
+        </div>
+    </div>
+    <script src="../js/beneficiary.js"></script>
+</body>
+
+</html>
