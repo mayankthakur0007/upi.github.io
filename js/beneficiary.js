@@ -32,7 +32,7 @@ load = () => {
             var IFSC = table.rows[index].cells[2].innerText;
             document.getElementById('heading').innerText = "Change Beneficiary Details";
 
-            document.getElementById('save').style.visibility = "visible";
+            document.getElementById('save').style.display = "block";
             document.getElementById('submit').style.display = "none";
             document.getElementById('name').value = name;
             document.getElementById('accNumber').value = acc;
