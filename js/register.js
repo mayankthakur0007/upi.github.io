@@ -3,11 +3,6 @@ function googleTranslateElementInit() {
 }
 
 function validateForm() {
-  var response = grecaptcha.getResponse();
-  if (response == 0) {
-    alert("Please enter correct captcha")
-    return false;
-  }
   var b = Math.random()
 
   b = b.toString(36)
