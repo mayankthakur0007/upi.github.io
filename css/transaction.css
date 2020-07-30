@@ -1,7 +1,7 @@
 #container{
     display: grid;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    grid-template-rows: 280px 40px 600px 200px;
+    grid-template-rows: auto 40px 600px 200px;
     grid-template-areas: "head"
                           "nav"
                           "content"
