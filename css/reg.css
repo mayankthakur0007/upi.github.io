@@ -48,7 +48,7 @@ body{
     #my_captcha_form{
 
    position: fixed;
-    top:80px;
+    top:20px;
     color: white;
     z-index: 1;
     margin: 40px;
